@@ -7,6 +7,7 @@ import org.lrh.service.BrandService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,6 +30,10 @@ public class BrandServiceImpl implements BrandService {
 
     @Override
     public void addBrand(Brand brand) {
+        Date d = new Date();
+        brand.setCreateDate(d);
+        brand.setUpdateDate(d);
+        brand.setAuthor("admin");
         brandDao.addBrand(brand);
     }
 
