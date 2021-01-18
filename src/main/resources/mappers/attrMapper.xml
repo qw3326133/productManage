@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.lrh.dao.AttrDao">
+    <select id="queryAttrData" parameterType="org.lrh.entity.vo.PageParam" resultType="org.lrh.entity.po.Attr">
+        select * from t_attr where 1=1 and isDel = 0
+        <if test="searchName!=null and searchName!=''">
+            and name like concat('%'+#{searchName}+'%')
+        </if>
+        limit #{start},#{limit}
+    </select>
+    <select id="queryAttrCount" parameterType="org.lrh.entity.vo.PageParam" resultType="java.lang.Integer">
+        select count(1) from t_attr where 1=1 and isDel = 0
+        <if test="searchName!=null and searchName!=''">
+            and name like concat('%',#{searchName},'%')
+        </if>
+    </select>
+    <insert id="addAttr" parameterType="org.lrh.entity.po.Attr" >
+        insert into t_Attr (name,nameCH,typeId,type,isSKU,author,isDel,createDate,updateDate)
+          value (#{name},#{nameCH},#{typeId},#{type},#{isSKU},#{author},#{isDel},#{createDate},#{updateDate})
+    </insert>
+
+    <select id="queryAttrById" parameterType="java.lang.Integer" resultType="org.lrh.entity.po.Attr">
+        select * from t_attr where 1=1 and id = #{id} and isDel = 0
+    </select>
+    <update id="updateAttrById" parameterType="org.lrh.entity.po.Attr">
+        update t_attr set name = #{name},nameCH=#{nameCH},typeId=#{typeId},type=#{type},isSKU=#{isSKU},updateDate = #{updateDate},author = #{author} where 1=1 and id=#{id} and isDel = 0
+    </update>
+    <update id="deleteAttrById" parameterType="java.lang.Integer">
+        update t_attr set isDel = 1 where 1=1 and id=#{id}
+    </update>
+</mapper>

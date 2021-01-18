@@ -45,6 +45,7 @@ public class BrandServiceImpl implements BrandService {
 
     @Override
     public void updateBrandById(Brand brand) {
+        brand.setUpdateDate(new Date());
         brandDao.updateBrandById(brand);
     }
 

@@ -9,9 +9,9 @@
         limit #{start},#{limit}
     </select>
     <select id="queryBrandCount" parameterType="org.lrh.entity.vo.PageParam" resultType="java.lang.Integer">
-        select * from t_brand where 1=1 and isDel = 0
+        select count(1) from t_brand where 1=1 and isDel = 0
         <if test="searchName!=null and searchName!=''">
-            and name like concat('%'+#{searchName}+'%')
+            and name like concat('%',#{searchName},'%')
         </if>
     </select>
     <insert id="addBrand" parameterType="org.lrh.entity.po.Brand" >
@@ -23,7 +23,7 @@
         select * from t_brand where 1=1 and id = #{id} and isDel = 0
     </select>
     <update id="updateBrandById" parameterType="org.lrh.entity.po.Brand">
-        update t_brand set name = #{name},updateDate = #{updateDate},author = #{author} where 1=1 and id=#{id} and isDel = 0
+        update t_brand set name = #{name},imgPath=#{imgPath},ord=#{ord},updateDate = #{updateDate},author = #{author} where 1=1 and id=#{id} and isDel = 0
     </update>
     <update id="deleteBrandById" parameterType="java.lang.Integer">
         update t_brand set isDel = 1 where 1=1 and id=#{id}
