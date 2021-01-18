@@ -54,4 +54,9 @@ public class AttrServiceImpl implements AttrService {
     public void deleteAttrById(Integer id) {
         attrDao.deleteAttrById(id);
     }
+
+    @Override
+    public List<Attr> queryAttrDataAll() {
+        return attrDao.queryAttrDataAll();
+    }
 }

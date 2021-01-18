@@ -17,4 +17,6 @@ public interface BrandDao {
     void updateBrandById(Brand brand);
 
     void deleteBrandById(Integer id);
+
+    List<Brand> queryBrandDataAll();
 }

@@ -19,4 +19,7 @@
     <update id="deleteAttrValueById" parameterType="java.lang.Integer">
         update t_AttrValue set isDel = 1 where 1=1 and id=#{id}
     </update>
+    <select id="queryAttrValueDataAll" resultType="org.lrh.entity.po.AttrValue">
+        select * from t_attrValue where 1=1 and isDel=0
+    </select>
 </mapper>

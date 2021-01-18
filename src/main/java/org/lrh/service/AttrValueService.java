@@ -15,4 +15,6 @@ public interface AttrValueService {
     void updateAttrValueById(AttrValue av);
 
     void deleteAttrValueById(Integer id);
+
+    List<AttrValue> queryAttrValueDataAll();
 }

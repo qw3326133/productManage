@@ -17,4 +17,6 @@ public interface AttrDao {
     void updateAttrById(Attr attr);
 
     void deleteAttrById(Integer id);
+
+    List<Attr> queryAttrDataAll();
 }

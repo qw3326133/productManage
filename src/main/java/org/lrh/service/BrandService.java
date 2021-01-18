@@ -3,6 +3,7 @@ package org.lrh.service;
 import org.lrh.entity.po.Brand;
 import org.lrh.entity.vo.PageParam;
 
+import java.util.List;
 import java.util.Map;
 
 public interface BrandService {
@@ -15,4 +16,6 @@ public interface BrandService {
     void updateBrandById(Brand brand);
 
     void deleteBrandById(Integer id);
+
+    List<Brand> queryBrandDataAll();
 }

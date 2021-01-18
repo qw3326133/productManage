@@ -83,4 +83,9 @@ public class BrandController {
         brandSer.deleteBrandById(id);
         return ResponseData.success("");
     }
+    @GetMapping("queryBrandDataAll")
+    public ResponseData queryBrandDataAll(){
+        List<Brand> list = brandSer.queryBrandDataAll();
+        return ResponseData.success(list);
+    }
 }

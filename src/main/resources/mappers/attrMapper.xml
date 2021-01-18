@@ -28,4 +28,7 @@
     <update id="deleteAttrById" parameterType="java.lang.Integer">
         update t_attr set isDel = 1 where 1=1 and id=#{id}
     </update>
+    <select id="queryAttrDataAll" resultType="org.lrh.entity.po.Attr">
+        select * from t_attr where 1=1 and isDel=0
+    </select>
 </mapper>

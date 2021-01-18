@@ -46,4 +46,9 @@ public class AttrValueServiceImpl implements AttrValueService {
     public void deleteAttrValueById(Integer id) {
         avDao.deleteAttrValueById(id);
     }
+
+    @Override
+    public List<AttrValue> queryAttrValueDataAll() {
+        return avDao.queryAttrValueDataAll();
+    }
 }

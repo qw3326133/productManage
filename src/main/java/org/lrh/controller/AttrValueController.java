@@ -50,5 +50,10 @@ public class AttrValueController {
         avSer.updateAttrValueById(av);
         return ResponseData.success("");
     }
+    @GetMapping("queryAttrValueDataAll")
+    public ResponseData queryAttrValueDataAll(){
+        List<AttrValue> list = avSer.queryAttrValueDataAll();
+        return ResponseData.success(list);
+    }
 
 }
