@@ -38,7 +38,7 @@ public class AttrController {
         return ResponseData.success(map);
     }
 
-    @GetMapping("querytAttrById")
+    @GetMapping("queryAttrById")
     public ResponseData querytAttrById(Integer id){
         if (id==null){
             return ResponseData.error();

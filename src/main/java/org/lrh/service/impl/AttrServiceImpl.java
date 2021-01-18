@@ -28,6 +28,7 @@ public class AttrServiceImpl implements AttrService {
 
     @Override
     public Map queryAttrData(PageParam param) {
+        param.getStartIndex();
         Map map = new HashMap();
         List<Attr> attrs = attrDao.queryAttrData(param);
         Integer count = attrDao.queryAttrCount(param);
