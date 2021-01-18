@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.lrh.dao.AttrValueDao">
+    <select id="queryAttrValueData" parameterType="java.lang.Integer" resultType="org.lrh.entity.po.AttrValue">
+        select * from t_AttrValue where 1=1 and isDel = 0 and attrId = #{attrId}
+    </select>
+
+    <insert id="addAttrValue" parameterType="org.lrh.entity.po.AttrValue" >
+        insert into t_AttrValue (name,nameCH,attrId,author,isDel,createDate,updateDate)
+          value (#{name},#{nameCH},#{attrId},#{author},#{isDel},#{createDate},#{updateDate})
+    </insert>
+
+    <select id="queryAttrValueById" parameterType="java.lang.Integer" resultType="org.lrh.entity.po.AttrValue">
+        select * from t_AttrValue where 1=1 and id = #{id} and isDel = 0
+    </select>
+    <update id="updateAttrValueById" parameterType="org.lrh.entity.po.AttrValue">
+        update t_AttrValue set name = #{name},nameCH=#{nameCH},attrId=#{attrId},updateDate = #{updateDate},author = #{author} where 1=1 and id=#{id} and isDel = 0
+    </update>
+    <update id="deleteAttrValueById" parameterType="java.lang.Integer">
+        update t_AttrValue set isDel = 1 where 1=1 and id=#{id}
+    </update>
+</mapper>
