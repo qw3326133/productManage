@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.lrh.dao.ProductDao">
+    <select id="queryProductData" parameterType="org.lrh.entity.vo.PageParam" resultType="org.lrh.entity.po.Product">
+        select * from t_product where 1=1 and isDel = 0
+    </select>
+    <insert id="addPro" parameterType="org.lrh.entity.po.Product" useGeneratedKeys="true" keyProperty="id">
+        insert  into t_product  (name,title,brandId,typeId,productDesc,price,imgPath,stocks,ord,createDate,updateDate,author,isDel)
+           value(#{name},#{title},#{brandId},#{typeId},#{productDesc},#{price},#{imgPath},#{stocks},#{ord},#{createDate},#{updateDate},#{author},#{isDel})
+    </insert>
+
+    <select id="queryTypeByPid" parameterType="java.lang.Integer" resultType="org.lrh.entity.po.Product">
+        select * from t_product where 1=1 and id = #{id} and isDel = 0
+    </select>
+    <update id="updateProductById" parameterType="org.lrh.entity.po.Product">
+        update t_product set name = #{name},updateDate = #{updateDate},author = #{author} where 1=1 and id=#{id} and isDel = 0
+    </update>
+    <update id="deleteProductById" parameterType="java.lang.Integer">
+        update t_product set isDel = 1 where 1=1 and id=#{id}
+    </update>
+</mapper>
